@@ -65,21 +65,22 @@ def plotSomething():
         # print '\t\t\t\t' + str(freq) + '\t' + str(amp)
         prevamp = amp
 
-        if amp > 5000 and abs(freq - 4000) < 100:
+        if amp > 2500 and abs(freq - 4000) < 100:
             currbit = 1
-        elif prevbit != -1 and amp > 5000 and abs(freq - 3000) < 100:
+        elif prevbit != -1 and amp > 2500 and abs(freq - 3000) < 100:
             currbit = 0
         else:
             currbit = -1
-            # print 'AHHHHHHHHHHHHHHHHHHHHHHHHHHH'
             if prevbit != -1:
+                print 'AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH'
                 print '\t\t\t\t' + str(freq) + '\t' + str(amp)
 
-        if len(times) > 0 and currbit == -1:
+        if len(times) > 0 and prevbit == -1 and  currbit == -1:
             times.append(time.clock()*1000)
             bits = timesToBits(times)[1:]
-            if len(bits)%8 != 0:
-                bits = bits + '0'*(8 - len(bits)%8)
+            # if len(bits)%8 != 0:
+            #     bits = bits + '0'*(8 - len(bits)%8)
+            bits = bits[:len(bits)-len(bits)%8]
             # bits = bits.ljust(8, '0') # pad with 0s on the right
             print [bits[i:i+8] for i in range(0, len(bits), 8)]
             message = ''.join([chr(int(bits[i:i+8], 2)) for i in range(0, len(bits), 8)])
@@ -87,18 +88,19 @@ def plotSomething():
             times = []
             prevbit = -1
 
-        if currbit != -1 and currbit != prevbit:
+        if currbit != prevbit:
             print str(prevbit) + "\t" + str(currbit)
-            times.append(time.clock()*1000)
-            print times
-            if currbit == 0:
-                print times[-1] - times[-2]
-                if times[-1] - times[-2] < BITLENGTH/4:
-                    # times = times[:-2]
-                    print times
-                # print times[-1] - times[-2]
-                # print times
             prevbit = currbit
+            if currbit != -1:
+                times.append(time.clock()*1000)
+                print times
+                if currbit == 0:
+                    print times[-1] - times[-2]
+                    if times[-1] - times[-2] < BITLENGTH/4:
+                        # times = times[:-2]
+                        print times
+                    # print times[-1] - times[-2]
+                    # print times
 
 
     """
