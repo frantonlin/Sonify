@@ -12,7 +12,7 @@ import time
 prevbit = 0
 times = []
 prevamp = 0
-BITLENGTH = 420.0
+BITLENGTH = 410.0
 
 
 def timesToBits(times):
@@ -22,7 +22,7 @@ def timesToBits(times):
         
         # bitMessage += str((i+1)%2)*numBits
         if i%2 == 0:
-            dt = times[i+1] - times[i] - 50
+            dt = times[i+1] - times[i] + 100
             numBits = int(round(dt/BITLENGTH))
             bitMessage += '1'*numBits
         else:
@@ -55,8 +55,10 @@ def plotSomething():
     if amp != prevamp:
         if len(times) > 0 and time.clock()*1000 - times[-1] > 2730:
             bits = timesToBits(times)[1:]
+            if len(bits)%8 != 0:
+                bits = bits + '0'*(8 - len(bits)%8)
             print bits
-            message = [chr(int(bits[i:i+8], 2)) for i in range(0, len(bits), 8)]
+            message = ''.join([chr(int(bits[i:i+8], 2)) for i in range(0, len(bits), 8)])
             print message
             times = []
 
@@ -67,8 +69,14 @@ def plotSomething():
 
         if currbit != prevbit:
             times.append(time.clock()*1000)
+            print times
             if currbit == 0:
                 print times[-1] - times[-2]
+                if times[-1] - times[-2] < BITLENGTH/4:
+                    times = times[:-2]
+                    print times
+                # print times[-1] - times[-2]
+                # print times
             prevbit = currbit
 
 
