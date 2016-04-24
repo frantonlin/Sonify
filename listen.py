@@ -1,7 +1,7 @@
 import matplotlib
 matplotlib.use('TkAgg') # <-- THIS MAKES IT FAST!
 import numpy
-import scipy
+import scipy.fftpack
 import struct
 import pyaudio
 import threading
@@ -14,7 +14,7 @@ class Listener:
     
     def __init__(self):
         """minimal garb is executed when class is loaded."""
-        self.RATE=48000
+        self.RATE=96000
         self.BUFFERSIZE=2**11 #1024 is a good buffer size
         self.secToRecord=.1
         self.threadsDieNow=False
@@ -80,7 +80,7 @@ class Listener:
     def fft(self,data=None,trimBy=10,logScale=False,divBy=100):
         if data==None: 
             data=self.audio.flatten()
-        left,right=numpy.split(numpy.abs(numpy.fft.fft(data)),2)
+        left,right=numpy.split(numpy.abs(scipy.fftpack.fft(data)),2)
         ys=numpy.add(left,right[::-1])
         if logScale:
             ys=numpy.multiply(20,numpy.log10(ys))

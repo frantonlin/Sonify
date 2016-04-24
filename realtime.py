@@ -9,10 +9,10 @@ import time
 
 
 
-prevbit = 0
+prevbit = -1
 times = []
 prevamp = 0
-BITLENGTH = 410.0
+BITLENGTH = 170.0
 
 
 def timesToBits(times):
@@ -21,13 +21,19 @@ def timesToBits(times):
         
         
         # bitMessage += str((i+1)%2)*numBits
+        dt = times[i+1] - times[i]
         if i%2 == 0:
-            dt = times[i+1] - times[i] + 100
             numBits = int(round(dt/BITLENGTH))
+            if numBits == 0:
+                numBits = 1;
+            print '1\t' + str(int(round(dt))) + '\t' + str(numBits)
             bitMessage += '1'*numBits
         else:
-            dt = times[i+1] - times[i] + 250
+            # dt +=  27*dt/BITLENGTH
             numBits = int(round(dt/BITLENGTH))
+            if numBits == 0:
+                numBits = 1;
+            print '0\t' + str(int(round(times[i+1] - times[i]))) + ':' + str(int(round(dt))) + '\t' + str(numBits)
             bitMessage += '0'*numBits
     return bitMessage
 
@@ -44,6 +50,8 @@ def plotSomething():
     # ylabel('|Y(freq)|')
     # listener.newAudio=False
     # show()
+    xs = xs[5:]
+    ys = ys[5:]
     amp = np.amax(ys)
     freq = xs.item(np.argmax(ys))
     # # if abs(freq - prevfreq) > 1: #88.4
@@ -53,27 +61,40 @@ def plotSomething():
     #     prevamp = amp
 
     if amp != prevamp:
-        if len(times) > 0 and time.clock()*1000 - times[-1] > 2730:
+        # print str(freq) + '\t' + str(amp)
+        # print '\t\t\t\t' + str(freq) + '\t' + str(amp)
+        prevamp = amp
+
+        if amp > 5000 and abs(freq - 4000) < 100:
+            currbit = 1
+        elif prevbit != -1 and amp > 5000 and abs(freq - 3000) < 100:
+            currbit = 0
+        else:
+            currbit = -1
+            # print 'AHHHHHHHHHHHHHHHHHHHHHHHHHHH'
+            if prevbit != -1:
+                print '\t\t\t\t' + str(freq) + '\t' + str(amp)
+
+        if len(times) > 0 and currbit == -1:
+            times.append(time.clock()*1000)
             bits = timesToBits(times)[1:]
             if len(bits)%8 != 0:
                 bits = bits + '0'*(8 - len(bits)%8)
-            print bits
+            # bits = bits.ljust(8, '0') # pad with 0s on the right
+            print [bits[i:i+8] for i in range(0, len(bits), 8)]
             message = ''.join([chr(int(bits[i:i+8], 2)) for i in range(0, len(bits), 8)])
             print message
             times = []
+            prevbit = -1
 
-        if amp > 8000 and abs(freq - 2000) < 20:
-            currbit = 1
-        else:
-            currbit = 0
-
-        if currbit != prevbit:
+        if currbit != -1 and currbit != prevbit:
+            print str(prevbit) + "\t" + str(currbit)
             times.append(time.clock()*1000)
             print times
             if currbit == 0:
                 print times[-1] - times[-2]
                 if times[-1] - times[-2] < BITLENGTH/4:
-                    times = times[:-2]
+                    # times = times[:-2]
                     print times
                 # print times[-1] - times[-2]
                 # print times
