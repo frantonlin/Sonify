@@ -4,6 +4,10 @@ layout: template
 filename: index.md
 ---
 
-# Sonify
+# System Diagram
 
-this is a test
+![alt text](https://github.com/frantonlin/Sonify/systemDiagram.svg "Logo Title Text 1")
+
+# Demo
+
+# Encoding data
