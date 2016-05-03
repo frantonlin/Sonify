@@ -6,7 +6,7 @@ filename: index.md
 
 # System Diagram
 
-![](systemDiagram.svg?raw=true)
+![](systemDiagram.png?raw=true)
 
 # Demo
 
