@@ -4,6 +4,8 @@ layout: template
 filename: index.md
 ---
 
-# Sonify
+# System Diagram
 
-this is a test
+# Demo
+
+# Encoding data
