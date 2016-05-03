@@ -4,10 +4,18 @@ layout: template
 filename: index.md
 ---
 
-# System Diagram
+# Transferring Bits with Sound
 
-![](systemDiagram.png?raw=true)
+## The Basic Idea
 
-# Demo
+![](images/systemDiagram.png?raw=true)
 
-# Encoding data
+## A Demo
+
+## Encoding Data
+
+## Decoding Data
+
+## Accuracy Tradeoff
+
+## Future Work
