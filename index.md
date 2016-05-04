@@ -12,7 +12,7 @@ filename: index.md
 
 ## A Demo
 
-[![Demo](https://www.youtube.com/watch?v=YD8VOvXGZOg/0.jpg)](https://www.youtube.com/watch?v=YD8VOvXGZOg)
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/YD8VOvXGZOg/0.jpg)](http://www.youtube.com/watch?v=YD8VOvXGZOg)
 
 ## Encoding Data
 
