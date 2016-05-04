@@ -16,8 +16,18 @@ filename: index.md
 
 ## Encoding Data
 
+![](images/encode.png?raw=true)
+
 ## Decoding Data
 
+![](images/decode.png?raw=true)
+
+![](images/decode1.png?raw=true)
+
+![](images/decode2.png?raw=true)
+
 ## Accuracy Tradeoff
+
+![](images/tradeoff.png?raw=true)
 
 ## Future Work
