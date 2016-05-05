@@ -64,4 +64,4 @@ Phase shift keying works similarly to what we implemented. However, only one fre
 ![](images/psk.gif?raw=true)
 <br><sub><sup>*Image from electronicdesign.com*</sup></sub>
 
-Possibly some combination of matched filtering and phase shift keying would allow for the most robust and efficient system.
+Possibly some combination of matched filtering and phase shift keying would allow for a very robust and efficient system.
