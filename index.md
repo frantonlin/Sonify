@@ -59,4 +59,9 @@ If we had implemented matched filtering in our project, then we would effectivel
 
 ### Phase Shift Keying (PSK)
 
-Phase shift keying works similarly to what we implemented. However, only one frequency is used and the phase (rather than the frequency) of the wave specifies the bit. PSK is more efficient because it wastes less frequency space, as only one frequency is used. However, we would need to filter for the specific frequency before being able to determine phase. Possibly some combination of matched filtering and phase shift keying would allow for the most robust and efficient system.
+Phase shift keying works similarly to what we implemented. However, only one frequency is used and the phase (rather than the frequency) of the wave specifies the bit. PSK is more efficient because it wastes less frequency space, as only one frequency is used. However, we would need to filter for the specific frequency before being able to determine phase. The image below depicts simple 180° phase shift keying.
+
+![](images/psk.gif?raw=true)
+<sub><sup>*Image from electronicdesign.com*</sup></sub>
+
+Possibly some combination of matched filtering and phase shift keying would allow for the most robust and efficient system.
