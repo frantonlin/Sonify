@@ -53,6 +53,10 @@ A more efficient implementation of this communication could use matched filterin
 When receiving a signal with a known set of signal states, you can ignore noise that does not exist within one of these known states. The set of all known states of a signal is called the template. If an unknown signal is convolved with its conjugated time-reversed template, then the unknown signal will converge to the set of known signal states, effectively eliminating accumulated noise. The process of eliminating noise in this way is known as matched filtering. The image below depicts this process.
 
 ![](https://upload.wikimedia.org/wikipedia/commons/9/91/Matched_Filter_Total_System.jpg?raw=true)
-<sub><sup>Image from Wikipedia</sup></sub>
+<sub><sup>*Image from Wikipedia*</sup></sub>
 
 If we had implemented matched filtering in our project, then we would effectively be running a DFT with only two bins focused around 1500 Hz and 2000 Hz. This would significantly increase our frequency accuracy and computation speed, making this communication method more effective and accurate.
+
+### Phase Shift Keying (PSK)
+
+Phase shift keying works similarly to what we implemented. However, only one frequency is used and the phase (rather than the frequency) of the wave specifies the bit. PSK is more efficient because it wastes less frequency space, as only one frequency is used. However, we would need to filter for the specific frequency before being able to determine phase. Possibly some combination of matched filtering and phase shift keying would allow for the most robust and efficient system.
