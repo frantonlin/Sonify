@@ -40,7 +40,7 @@ When can then use this array of saved times to calculate how long each series of
 
 ## Accuracy Tradeoff
 
-The image below is a representation of how we took the FFT across our audio signal. We chose the size of our FFT buffer to change the accuracy of frequency detection (larger FFT buffer decreases bin size) and the speed of FFT computation (smaller FFT buffer is faster). We had to optimize the buffer size to perform an FFT that computes both accurately and quickly.
+The image below is a representation of how we took the FFT across our audio signal. We chose the size of our FFT buffer to change the accuracy of frequency detection (larger FFT buffer decreases bin size) and the speed of FFT computation (smaller FFT buffer is faster). We had to optimize the buffer size to perform an FFT that computes accurately in the frequency domain and quickly in time.
 
 ![](images/tradeoff.png?raw=true)
 
