@@ -46,9 +46,13 @@ The image below is a representation of how we took the FFT across our audio sign
 
 ## Future Work
 
+A more efficient implementation of this communication could use matched filtering or phase shift keying.
+
+### Matched Filtering
+
 When receiving a signal with a known set of signal states, you can ignore noise that does not exist within one of these known states. The set of all known states of a signal is called the template. If an unknown signal is convolved with its conjugated time-reversed template, then the unknown signal will converge to the set of known signal states, effectively eliminating accumulated noise. The process of eliminating noise in this way is known as matched filtering. The image below depicts this process.
 
 ![](https://upload.wikimedia.org/wikipedia/commons/9/91/Matched_Filter_Total_System.jpg?raw=true)
-Image from wikipedia
+Image from Wikipedia
 
-If we had implemented matched filtering in our project, then we would have been able to run an FFT with only two bins focused around 1500 Hz and 2000 Hz, which would significantly increase our computation speed, which would increase the effectiveness and accuracy of our message transmission method.
+If we had implemented matched filtering in our project, then we would effectively be running a DFT with only two bins focused around 1500 Hz and 2000 Hz. This would significantly increase our frequency accuracy and computation speed, making this communication method more effective and accurate.
