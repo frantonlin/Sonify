@@ -54,5 +54,6 @@ When receiving a signal with a known set of signal states, you can ignore noise 
 
 ![](https://upload.wikimedia.org/wikipedia/commons/9/91/Matched_Filter_Total_System.jpg?raw=true)
 Image from Wikipedia
+<div class="align-right">right</div>
 
 If we had implemented matched filtering in our project, then we would effectively be running a DFT with only two bins focused around 1500 Hz and 2000 Hz. This would significantly increase our frequency accuracy and computation speed, making this communication method more effective and accurate.
