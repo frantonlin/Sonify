@@ -6,6 +6,12 @@ filename: index.md
 
 # Transferring Bits with Sound
 
+## Video Explanation
+
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/eeCN8XOj45g/0.jpg)](http://www.youtube.com/watch?v=eeCN8XOj45g)
+
+Direct Link Here: https://www.youtube.com/watch?v=eeCN8XOj45g&feature=youtu.be
+
 ## The Basic Idea
 
 Our project goal is to transmit messages from one device to another using sound waves in the audible frequency range. Below, you can see a diagram of our system, which includes user input, conversion to binary, waveform encoding, and waveform decoding back into the original message (hopefully).
