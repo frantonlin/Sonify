@@ -10,7 +10,7 @@ filename: index.md
 
 [![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/eeCN8XOj45g/0.jpg)](http://www.youtube.com/watch?v=eeCN8XOj45g)
 
-Direct Link Here: https://www.youtube.com/watch?v=eeCN8XOj45g&feature=youtu.be
+Direct Link Here: https://www.youtube.com/watch?v=eeCN8XOj45g
 
 ## The Basic Idea
 
